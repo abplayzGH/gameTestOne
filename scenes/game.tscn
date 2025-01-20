@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=4 uid="uid://ucovx0p4fe5v"]
+[gd_scene load_steps=15 format=4 uid="uid://ucovx0p4fe5v"]
 
 [ext_resource type="PackedScene" uid="uid://cn2polu2occke" path="res://scenes/player.tscn" id="1_bxmv4"]
 [ext_resource type="Texture2D" uid="uid://blju70bcbg4ce" path="res://assests/sprites/world_tileset.png" id="2_lc5y1"]
 [ext_resource type="PackedScene" uid="uid://cl3o48my3yl6m" path="res://scenes/platform.tscn" id="3_vremi"]
 [ext_resource type="PackedScene" uid="uid://rjmsh767j4sx" path="res://scenes/coin.tscn" id="4_t6aui"]
 [ext_resource type="PackedScene" uid="uid://vr1v32tk8b25" path="res://scenes/killzone.tscn" id="5_s5j8f"]
+[ext_resource type="PackedScene" uid="uid://xhs2ixr5matr" path="res://scenes/slime.tscn" id="6_fn1oe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_44s8c"]
 texture = ExtResource("2_lc5y1")
@@ -305,6 +306,21 @@ texture = ExtResource("2_lc5y1")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_3bdfd")
 
+[sub_resource type="Animation" id="Animation_wopmf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(409, -11)]
+}
+
 [sub_resource type="Animation" id="Animation_a7jov"]
 resource_name = "move"
 length = 1.5
@@ -320,21 +336,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(409, -11), Vector2(504, -11)]
-}
-
-[sub_resource type="Animation" id="Animation_wopmf"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(409, -11)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_udwne"]
@@ -416,3 +417,6 @@ position = Vector2(44, 98)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzones/Killzone"]
 shape = SubResource("WorldBoundaryShape2D_ml46h")
+
+[node name="Node2D" parent="." instance=ExtResource("6_fn1oe")]
+position = Vector2(569, 1)
